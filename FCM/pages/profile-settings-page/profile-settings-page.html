@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Edit Profile
+    </ion-title>
+    <button ion-button end (click)="updateUser()">
+      <ion-icon name="checkmark-circle"></ion-icon>
+     </button> 
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="disabled">
+  <div class="profileInputs">
+    
+      <div class="imageContainer profilePhoto" (click)="photoOptions()">
+          <img src="{{updateUserIMG}}" />
+          <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+        </div>
+        <p class="editPhoto">Tap to Edit Photo</p>
+
+    <ion-item>
+      <ion-label>Nickname</ion-label>
+      <ion-input [(ngModel)]="name" class="name" type="text">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Birthdate</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="birthday"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="level">Experience</ion-label>
+      <ion-select [(ngModel)]="experience" interface="action-sheet">
+        <ion-option value="1">Recreational</ion-option>
+        <ion-option value="2">High School</ion-option>
+        <ion-option value="3">AAU/Club</ion-option>
+        <ion-option value="4">Collegiate</ion-option>
+        <ion-option value="5">Semi-Pro</ion-option>
+        <ion-option value="6">Professional</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-select [(ngModel)]="gender" interface="action-sheet">
+        <ion-option value="male">Male</ion-option>
+        <ion-option value="female">Female</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Height</ion-label>
+      <ion-select [(ngModel)]="height" interface="action-sheet">
+        <ion-option value="5'1">5'1"</ion-option>
+        <ion-option value="5'2">5'2"</ion-option>
+        <ion-option value="5'3">5'3"</ion-option>
+        <ion-option value="5'4">5'4"</ion-option>
+        <ion-option value="5'5">5'5"</ion-option>
+        <ion-option value="5'6">5'6"</ion-option>
+        <ion-option value="5'7">5'7"</ion-option>
+        <ion-option value="5'8">5'8"</ion-option>
+        <ion-option value="5'9">5'9"</ion-option>
+        <ion-option value="5'10">5'10"</ion-option>
+        <ion-option value="5'11" checked="true">5'11"</ion-option>
+        <ion-option value="6'0">6'0"</ion-option>
+        <ion-option value="6'1">6'1"</ion-option>
+        <ion-option value="6'2">6'2"</ion-option>
+        <ion-option value="6'3">6'3"</ion-option>
+        <ion-option value="6'4">6'4"</ion-option>
+        <ion-option value="6'5">6'5"</ion-option>
+        <ion-option value="6'6">6'6"</ion-option>
+        <ion-option value="6'7">6'7"</ion-option>
+        <ion-option value="6'8">6'8"</ion-option>
+        <ion-option value="6'9">6'9"</ion-option>
+        <ion-option value="6'10">6'10"</ion-option>
+        <ion-option value="6'11">6'11"</ion-option>
+        <ion-option value="7'0">7'0"</ion-option>
+        <ion-option value="7'1">7'1"</ion-option>
+        <ion-option value="7'2">7'2"</ion-option>
+        <ion-option value="7'3">7'3"</ion-option>
+        <ion-option value="7'4">7'4"</ion-option>
+        <ion-option value="7'5">7'5"</ion-option>
+        <ion-option value="7'6">7'6"</ion-option>
+        <ion-option value="7'7">7'7"</ion-option>
+        <ion-option value="7'8">7'8"</ion-option>
+        <ion-option value="7'9">7'9"</ion-option>
+        <ion-option value="7'10">7'10"</ion-option>
+        <ion-option value="7'11">7'11"</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Weight</ion-label>
+      <ion-input class="weight" style="float:right;" type="tel" [(ngModel)]="weight"></ion-input>
+    </ion-item>
+  </div>
+  <ion-list class="appInfo">
+    <button ion-item (click)="showTerms()">Terms of Use</button>  
+    <button ion-item (click)="showPrivacyPolicy()">Privacy Policy</button>  
+    <button ion-item>Contact Us</button>  
+    <button ion-item (click)="showVersionInfo()">About this Version</button>
+  </ion-list>
+
+  <ion-list class="appInfo">
+    <ion-item>
+      <ion-label>Subscribe to notifications</ion-label>
+      <ion-toggle [(ngModel)]="subscribed" (ionChange)="toggleTopicSubscription()"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+    <button ion-button block class="logout secondaryButton" (click)="logOut()" padding outline>Logout</button>
+
+</ion-content>
